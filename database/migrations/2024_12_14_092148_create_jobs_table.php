@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Company;
 use App\Models\Employer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,7 +21,8 @@ return new class extends Migration
             $table->string('schedule')->default('Full Time');
             $table->string('url');
             $table->boolean('featured')->default(false);
-            $table->foreignIdFor(Employer::class)->constrained()->cascadeOnDelete();;
+            $table->foreignIdFor(Employer::class)->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Company::class)->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

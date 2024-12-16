@@ -1,6 +1,6 @@
 @props(['job'])
 <x-panel>
-<div class="self-start text-sm"> {{ $job->employer->name }} </div>
+<div class="self-start text-sm"> {{ $job->employer->name ?? $job->company->name }} </div>
 
     <div class="py-8">
         <h3 class="group-hover:text-blue-800 transition duration-500 text-xl font-bold">

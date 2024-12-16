@@ -1,11 +1,11 @@
 @props(['job' , 'button' => false])
 <x-panel class="flex flex-row  gap-x-6">
     <div>
-        <x-employer-logo :employer="$job->employer"></x-employer-logo>
+        <x-employer-logo :employer="$job->employer ?? false"></x-employer-logo>
     </div>
 
     <div class="flex-1 flex flex-col">
-        <a class="self-start text-sm text-gray-400"> {{ $job->employer->name }} </a>
+        <a class="self-start text-sm text-gray-400"> {{ $job->employer->name ?? $job->company->name }} </a>
 
         <h3 class="group-hover:text-blue-800 transition duration-500 font-bold mt-3 text-xl">
             <a href="/jobs/{{$job->title}}"  >{{ $job->title }}</a>
